@@ -13,7 +13,9 @@ for x in caracteres:
         if parenteses >= 1:
             parenteses -= 1
         else:
-            parenteses -= 2
+            parenteses -= 1
+            break
+        
 
 if parenteses == 0:
     print('Expressão válida!!')
