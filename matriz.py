@@ -18,9 +18,9 @@ print('=-'*30)
 
 for x in matriz:
     for y in x:
-        print(f'[ {y} ]', end= '')
+        print(f'[{y:^5}]', end= '')
     
-    print('')
+    print()
 
 for x in range(1, 3):
     if matriz[1][x] > maior_linha2:
