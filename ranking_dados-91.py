@@ -1,19 +1,23 @@
-#A ser terminado
 from random import randint
 from time import sleep
+from operator import itemgetter
 
-posicao = {1:'Primeiro', 2:'Segundo', 3:'Terceiro', 4:'Quarto'}
+podium = {0 : 'Primeiro lugar', 1 : 'Segundo lugar', 2 : 'Terceiro lugar', 3 : 'Quarto lugar'}
+
+jogo = {'Jogador 1' : randint(1, 6), 'Jogador 2' : randint(1, 6), 'Jogador 3' : randint(1, 6),
+        'Jogador 4' : randint(1, 6)}
+
 ranking = dict()
-organizar = [[], [], [], []]
 
-for x in range(1, 5):
-    organizar[x-1].append(x)
-    organizar[x-1].append(randint(1, 6))
+print('Valores sorteados:')
+for k, v in jogo.items():
+    print(f'{k} tirou {v} no dado.')
+    sleep(1)
 
-    for y in range(1, x):
-        if organizar[y-1][1] > organizar[x-1][1]:
+ranking = sorted(jogo.items(), key= itemgetter(1), reverse= True)
 
-        
-
+print(f'{'='*20}< RANKING >{'='*20}')
+for p, j in enumerate(ranking):
+    print(f'{podium[p]:<5}: {j[0]:^5} com {j[1]}')
 
         
