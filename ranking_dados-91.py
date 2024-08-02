@@ -18,6 +18,6 @@ ranking = sorted(jogo.items(), key= itemgetter(1), reverse= True)
 
 print(f'{'='*20}< RANKING >{'='*20}')
 for p, j in enumerate(ranking):
-    print(f'{podium[p]:<5}: {j[0]:^5} com {j[1]}')
+    print(f'{podium[p]:^20}: {j[0]:^8} com {j[1]}')
 
         
