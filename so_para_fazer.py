@@ -1,5 +1,5 @@
-from uteis.biblioteca import moeda, dados
+from uteis.biblioteca.dados import leia_inteiro
 
-preco = dados.leiaDinheiro('Digite o preço: R$ ')
+teste = leia_inteiro('Teste da função: ')
 
-moeda.resumo(preco, 80, 35)
+print(type(teste))
