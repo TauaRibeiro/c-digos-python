@@ -9,26 +9,28 @@ def leia_real(mensagem = ''):
     """
     while True:
         valido = True
+        try:
+            entrada = input(mensagem).strip()
+        except KeyboardInterrupt:
+            print('ERRO!! Não foi digitado nada. Por favor tente novamente...')
+        else:
+            entrada = entrada.replace(',', '.')
+            
+            if len(entrada) == 0:
+                print(f'ERRO!! \"{entrada}\" é um valor inválido!!')
 
-        entrada = input(mensagem).strip()
+                valido = False
 
-        entrada = entrada.replace(',', '.')
-        
-        if len(entrada) == 0:
-            print(f'ERRO!! \"{entrada}\" é um valor inválido!!')
+            for caracter in entrada:
+                if caracter.isnumeric() == False and caracter != '.': 
+                        print(f'ERRO!! \"{entrada}\" é um valor inválido!!')
 
-            valido = False
+                        valido = False
 
-        for caracter in entrada:
-            if caracter.isnumeric() == False and caracter != '.': 
-                    print(f'ERRO!! \"{entrada}\" é um valor inválido!!')
+                        break
 
-                    valido = False
-
-                    break
-
-        if valido:
-            return float(entrada)
+            if valido:
+                return float(entrada)
 
 
 def leia_inteiro(mensagem = ''):
@@ -43,15 +45,22 @@ def leia_inteiro(mensagem = ''):
     while True:
         valido = True
 
-        entrada = input(mensagem).strip()
-
-        for caracter in entrada:
-             if not caracter.isnumeric():
-                valido = False
-
+        try:
+            entrada = input(mensagem).strip()
+        except KeyboardInterrupt:
+            print('ERRO!! Não foi digitado nada. Por favor tente novamente...')
+        else:
+            if len(entrada) == 0:
                 print(f'ERRO!! \"{entrada}\" é um valor inválido!!')
+            else:
+                for caracter in entrada:
+                    if not caracter.isnumeric():
+                        valido = False
 
-                break
+                        print(f'ERRO!! \"{entrada}\" é um valor inválido!!')
+
+                        break
+                
+                if valido:
+                    return int(entrada)
         
-        if valido:
-            return int(entrada)
