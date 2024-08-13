@@ -77,7 +77,7 @@ def leia_letras(mensagem = ''):
                 print(f'ERRO!! \"{entrada}\" é um nome inválido!!')
             else:
                 for caracter in entrada:
-                    if not caracter.isalpha():
+                    if not caracter.isalpha() and caracter != ' ':
                         valido = False
 
                         print(f'ERRO!! \"{entrada}\" é um nome inválido!!')
